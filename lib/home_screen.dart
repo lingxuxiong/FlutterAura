@@ -4,13 +4,6 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Home Screen',
-    home: HomeScreen(),
+    home: DevicesListScreen(),
   ));
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return DevicesListScreen();
-  }
 }
