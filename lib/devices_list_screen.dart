@@ -1,4 +1,4 @@
-import 'package:aura/add_device.dart';
+import 'package:aura/add_device_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
