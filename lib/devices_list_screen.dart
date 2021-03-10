@@ -1,13 +1,6 @@
 import 'package:aura/add_device_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    title: 'Add Device Screen',
-    home: DevicesListScreen(),
-  ));
-}
-
 class DevicesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +14,7 @@ class DevicesListScreen extends StatelessWidget {
             print('TODO: to open drawer menu');
           },
         ),
-        title: Text('Devices List Screen'),
+        title: Text('Devices List'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),

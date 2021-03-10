@@ -5,11 +5,11 @@ class AddDeviceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Device Screen'),
+        title: Text('Add New Device'),
       ),
       body: Center(
         child: Text(
-          'Add Device Screen',
+          'Add New Device',
           textDirection: TextDirection.ltr,
         ),
       )
