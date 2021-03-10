@@ -1,3 +1,4 @@
+import 'package:aura/add_device.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,9 +40,19 @@ class DevicesListScreen extends StatelessWidget {
         tooltip: 'Add',
         child: Icon(Icons.add),
         onPressed: () {
-          debugPrint('TODO: to show Add device screen');
+          _navToAddDeviceScreen(context);
         },
       ),
+    );
+  }
+
+  void _navToAddDeviceScreen(BuildContext context) {
+    Navigator.of(context).push(
+        MaterialPageRoute<void>(
+            builder: (BuildContext context) {
+              return AddDeviceScreen();
+            }
+        )
     );
   }
 }
