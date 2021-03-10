@@ -34,7 +34,7 @@ class DevicesListScreen extends StatelessWidget {
       ),
       // body is the majority of the screen.
       body: Center(
-        child: Text('No devices found'),
+        child: GestureAwarenessButton(),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add',
@@ -45,14 +45,28 @@ class DevicesListScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  void _navToAddDeviceScreen(BuildContext context) {
-    Navigator.of(context).push(
-        MaterialPageRoute<void>(
-            builder: (BuildContext context) {
-              return AddDeviceScreen();
-            }
-        )
+class GestureAwarenessButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new GestureDetector(
+      onTap: (){
+        _navToAddDeviceScreen(context);
+      },
+      child: Text('No devices found')
     );
   }
 }
+
+void _navToAddDeviceScreen(BuildContext context) {
+  Navigator.of(context).push(
+      MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+            return AddDeviceScreen();
+          }
+      )
+  );
+}
+
+
