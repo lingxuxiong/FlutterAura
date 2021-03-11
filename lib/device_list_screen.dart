@@ -1,5 +1,6 @@
 import 'package:aura/add_device_screen.dart';
 import 'package:aura/ayla/AylaDevice.dart';
+import 'package:aura/device_details.dart';
 import 'package:aura/device_list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,6 @@ class DeviceListScreen extends StatefulWidget {
 }
 
 class _DeviceListScreenState extends State<DeviceListScreen> {
-
-  Set<AylaDevice> _devices = Set<AylaDevice>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +38,20 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
         ],
       ),
 
-      body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
-        children: widget.devices.map((AylaDevice device) {
-          return DeviceListItem(
-            device: device,
-            onTapped: (AylaDevice device) {
-              _navToDeviceDetailsScreen(context, device);
-            });
-        }).toList(),
-      ),
+      body: widget.devices.isNotEmpty
+          ? ListView(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              children: widget.devices.map((AylaDevice device) {
+               return DeviceListItem(
+                    device: device,
+                    onTapped: (AylaDevice device) {
+                     _navToDeviceDetailsScreen(context, device);
+                   });
+             }).toList())
+          : Center(child: GestureDetector(
+                    onTap: () => _navToAddDeviceScreen(context),
+                    child: Text('Empty Device'),
+      )),
 
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add',
@@ -65,7 +68,7 @@ void _navToDeviceDetailsScreen(BuildContext context, AylaDevice device) {
   Navigator.of(context).push(
       MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return AddDeviceScreen();
+            return DeviceDetails(device: device);
           }
       )
   );
@@ -80,5 +83,3 @@ void _navToAddDeviceScreen(BuildContext context) {
       )
   );
 }
-
-
