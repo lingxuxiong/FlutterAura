@@ -1,16 +1,15 @@
+import 'package:aura/ayla/AylaDevice.dart';
+import 'package:aura/device_list_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'demo/shopping/product.dart';
-import 'demo/shopping/shopping_list_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Shopping App',
-    home: ShoppingListScreen(
-      products: <Product>[
-        Product(name: 'Eggs'),
-        Product(name: 'Flour'),
-        Product(name: 'Chocolate chips'),
+    title: 'Aura App',
+    home: DeviceListScreen(
+      devices: <AylaDevice>[
+        AylaDevice(dsn: 'AC0000W00001', name: 'Device1', online: true),
+        AylaDevice(dsn: 'AC0000W00002', name: 'Device2', online: false),
+        AylaDevice(dsn: 'AC0000W00003', name: 'Device3', online: true),
       ],
     ),
   ));

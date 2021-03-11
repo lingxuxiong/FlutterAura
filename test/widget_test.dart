@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:aura/devices_list_screen.dart';
+import 'package:aura/device_list_screen.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(DevicesListScreen());
+    await tester.pumpWidget(DeviceListScreen());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

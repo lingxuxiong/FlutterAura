@@ -1,15 +1,28 @@
 import 'package:aura/add_device_screen.dart';
+import 'package:aura/ayla/AylaDevice.dart';
+import 'package:aura/device_list_item.dart';
 import 'package:flutter/material.dart';
 
-class DevicesListScreen extends StatelessWidget {
+class DeviceListScreen extends StatefulWidget {
+
+  DeviceListScreen({Key key, this.devices}) : super(key: key);
+
+  final List<AylaDevice> devices;
+
+  @override
+  _DeviceListScreenState createState() => _DeviceListScreenState();
+}
+
+class _DeviceListScreenState extends State<DeviceListScreen> {
+
+  Set<AylaDevice> _devices = Set<AylaDevice>();
+
   @override
   Widget build(BuildContext context) {
-    // Scaffold is a layout for the major Material Components.
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
-          tooltip: 'Show Navigation Drawer',
           onPressed: () {
             print('TODO: to open drawer menu');
           },
@@ -25,10 +38,18 @@ class DevicesListScreen extends StatelessWidget {
           ),
         ],
       ),
-      // body is the majority of the screen.
-      body: Center(
-        child: GestureAwarenessButton(),
+
+      body: ListView(
+        padding: EdgeInsets.symmetric(vertical: 8.0),
+        children: widget.devices.map((AylaDevice device) {
+          return DeviceListItem(
+            device: device,
+            onTapped: (AylaDevice device) {
+              _navToDeviceDetailsScreen(context, device);
+            });
+        }).toList(),
       ),
+
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add',
         child: Icon(Icons.add),
@@ -40,16 +61,14 @@ class DevicesListScreen extends StatelessWidget {
   }
 }
 
-class GestureAwarenessButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new GestureDetector(
-      onTap: (){
-        _navToAddDeviceScreen(context);
-      },
-      child: Text('No devices found')
-    );
-  }
+void _navToDeviceDetailsScreen(BuildContext context, AylaDevice device) {
+  Navigator.of(context).push(
+      MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+            return AddDeviceScreen();
+          }
+      )
+  );
 }
 
 void _navToAddDeviceScreen(BuildContext context) {
