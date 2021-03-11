@@ -19,6 +19,91 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget> [
+            DrawerHeader(
+              child: Text('Aura Engineering App'),
+              decoration: BoxDecoration(
+                color: Colors.lightGreen,
+              ),
+            ),
+
+            ListTile(
+              title: Text('Devices'),
+            ),
+            ListTile(
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_devices_black_48dp.png')),
+              title: Text('Devices List'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('Shares'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('Lan OTA'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('OTA Updates'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+
+
+            ListTile(
+              title: Text('Account'),
+            ),
+            ListTile(
+              title: Text('Account Information'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('Sign out'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('Delete Account'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+
+            ListTile(
+              title: Text('Support'),
+            ),
+            ListTile(
+              title: Text('Email logs'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+            ListTile(
+              title: Text('About'),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
@@ -82,4 +167,12 @@ void _navToAddDeviceScreen(BuildContext context) {
           }
       )
   );
+}
+
+void _openDrawer() {
+
+}
+
+void _closeDrawer(BuildContext context) {
+  Navigator.pop(context);
 }
