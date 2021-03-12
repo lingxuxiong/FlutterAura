@@ -68,7 +68,15 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
           padding: EdgeInsets.zero,
           children: <Widget> [
             DrawerHeader(
-              child: Text('Aura Engineering App'),
+              child: Column(
+                children: [
+                  Text('Aura Engineering App'),
+                  Image(
+                      width: 96.0,
+                      height: 96.0,
+                      image: AssetImage('./assets/android_robot.png')),
+                ],
+              ),
               decoration: BoxDecoration(
                 color: Colors.lightGreen,
               ),
@@ -78,29 +86,41 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
               title: Text('Devices'),
             ),
             ListTile(
+              title: Text('Devices List'),
               leading: Image(
                   width: 24.0,
                   height: 24.0,
                   image: AssetImage('./assets/ic_devices_black_48dp.png')),
-              title: Text('Devices List'),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('Shares'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_share.png')),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('Lan OTA'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_manage.png')),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('OTA Updates'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_manage.png')),
               onTap: () {
                 _closeDrawer(context);
               },
@@ -112,18 +132,30 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
             ),
             ListTile(
               title: Text('Account Information'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_manage.png')),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('Sign out'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_exit_to_app_black_48dp.png')),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('Delete Account'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_delete.png')),
               onTap: () {
                 _closeDrawer(context);
               },
@@ -134,12 +166,34 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
             ),
             ListTile(
               title: Text('Email logs'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_manage.png')),
               onTap: () {
                 _closeDrawer(context);
               },
             ),
             ListTile(
               title: Text('About'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_info_details.png')),
+              onTap: () {
+                _closeDrawer(context);
+              },
+            ),
+
+            ListTile(
+              title: Text('Settings'),
+            ),
+            ListTile(
+              title: Text('App Settings'),
+              leading: Image(
+                  width: 24.0,
+                  height: 24.0,
+                  image: AssetImage('./assets/ic_menu_manage.png')),
               onTap: () {
                 _closeDrawer(context);
               },
