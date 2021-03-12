@@ -11,7 +11,7 @@ class DeviceDetails extends StatelessWidget {
   }) : super(key: ObjectKey(device));
 
   Color _getColor(BuildContext context) {
-    return device.online ? Colors.black54 : Theme.of(context).primaryColor;
+    return device.online ? Colors.lightGreen : Colors.grey;
   }
 
   @override

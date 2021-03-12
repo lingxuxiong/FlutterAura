@@ -20,23 +20,17 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            print('TODO: to open drawer menu');
-          },
-        ),
         title: Text('Devices List'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: () {
-              print('TODO: to replace search action');
-            },
-          ),
-        ],
+        backgroundColor: Colors.lightGreen,
+        leading: Builder(builder: (context) =>
+            IconButton(
+              icon: Icon(Icons.menu),
+              tooltip: 'menu',
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+        ),
       ),
 
       body: widget.devices.isNotEmpty
