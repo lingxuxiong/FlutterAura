@@ -20,14 +20,19 @@ class DeviceListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      title: Text(device.dsn),
+      leading: device.online
+          ? Image(
+              image: AssetImage('./assets/ic_cloud_circle_black_24dp.png'),
+              color: _getColor(context),
+              colorBlendMode: BlendMode.srcATop)
+          : Image(
+              image: AssetImage('./assets/ic_cloud_off_black_24dp.png'),
+              color: _getColor(context),
+              colorBlendMode: BlendMode.srcATop),
       onTap: () {
         onTapped(device);
       },
-      leading: CircleAvatar(
-        backgroundColor: _getColor(context),
-        child: Text(device.name[0]),
-      ),
-      title: Text(device.dsn),
     );
   }
 }
