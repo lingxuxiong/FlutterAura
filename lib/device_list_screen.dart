@@ -19,6 +19,50 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            print('TODO: to open drawer menu');
+          },
+        ),
+        title: Text('Devices List'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: () {
+              print('TODO: to replace search action');
+            },
+          ),
+        ],
+      ),
+
+      body: widget.devices.isNotEmpty
+          ? ListView(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              children: widget.devices.map((AylaDevice device) {
+               return DeviceListItem(
+                    device: device,
+                    onTapped: (AylaDevice device) {
+                     _navToDeviceDetailsScreen(context, device);
+                   });
+             }).toList())
+          : Center(child: GestureDetector(
+                    onTap: () => _navToAddDeviceScreen(context),
+                    child: Text('Empty Device'),
+      )),
+
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Add',
+        backgroundColor: Colors.lightGreen,
+        child: Icon(Icons.add),
+        onPressed: () {
+          _navToAddDeviceScreen(context);
+        },
+      ),
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -102,48 +146,6 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
             ),
           ],
         ),
-      ),
-
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            print('TODO: to open drawer menu');
-          },
-        ),
-        title: Text('Devices List'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: () {
-              print('TODO: to replace search action');
-            },
-          ),
-        ],
-      ),
-
-      body: widget.devices.isNotEmpty
-          ? ListView(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              children: widget.devices.map((AylaDevice device) {
-               return DeviceListItem(
-                    device: device,
-                    onTapped: (AylaDevice device) {
-                     _navToDeviceDetailsScreen(context, device);
-                   });
-             }).toList())
-          : Center(child: GestureDetector(
-                    onTap: () => _navToAddDeviceScreen(context),
-                    child: Text('Empty Device'),
-      )),
-
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Add',
-        child: Icon(Icons.add),
-        onPressed: () {
-          _navToAddDeviceScreen(context);
-        },
       ),
     );
   }

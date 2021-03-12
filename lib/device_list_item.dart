@@ -14,7 +14,7 @@ class DeviceListItem extends StatelessWidget {
   final OnDeviceTappedCallback onTapped;
 
   Color _getColor(BuildContext context) {
-    return device.online ? Colors.black54 : Theme.of(context).primaryColor;
+    return device.online ? Colors.lightGreen : Colors.grey;
   }
 
   @override
