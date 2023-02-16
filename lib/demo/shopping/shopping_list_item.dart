@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 typedef void CartChangedCallback(Product product, bool inCart);
 
 class ShoppingListItem extends StatelessWidget {
-  ShoppingListItem({this.product, this.inCart, this.onCartChanged})
+  ShoppingListItem({required this.product, required this.inCart, required this.onCartChanged})
       : super(key: ObjectKey(product));
 
   final Product product;
@@ -21,12 +21,17 @@ class ShoppingListItem extends StatelessWidget {
   }
 
   TextStyle _getTextStyle(BuildContext context) {
-    if (!inCart) return null;
-
-    return TextStyle(
-      color: Colors.black54,
-      decoration: TextDecoration.lineThrough,
-    );
+    if (!inCart) {
+      return TextStyle(
+        color: Colors.black54,
+        decoration: TextDecoration.lineThrough,
+      );
+    } else {
+      return TextStyle(
+        color: Colors.black54,
+        decoration: TextDecoration.underline,
+      );
+    }
   }
 
   @override

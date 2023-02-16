@@ -6,8 +6,8 @@ typedef void OnDeviceTappedCallback(AylaDevice device);
 class DeviceListItem extends StatelessWidget {
 
   DeviceListItem({
-    this.device,
-    this.onTapped,
+    required this.device,
+    required this.onTapped,
   }) : super(key: ObjectKey(device));
 
   final AylaDevice device;

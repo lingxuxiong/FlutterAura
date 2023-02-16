@@ -1,4 +1,4 @@
 class Product {
-  const Product({this.name});
+  const Product({required this.name});
   final String name;
 }

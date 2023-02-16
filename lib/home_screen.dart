@@ -6,6 +6,7 @@ void main() {
   runApp(MaterialApp(
     title: 'Aura App',
     home: DeviceListScreen(
+      key: Key("home"),
       devices: <AylaDevice>[
         AylaDevice(dsn: 'AC0000W00001', name: 'Device1', online: true),
         AylaDevice(dsn: 'AC0000W00002', name: 'Device2', online: false),

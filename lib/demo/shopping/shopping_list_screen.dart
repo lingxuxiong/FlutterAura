@@ -3,7 +3,7 @@ import 'package:aura/demo/shopping/shopping_list_item.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingListScreen extends StatefulWidget {
-  ShoppingListScreen({Key key, this.products}) : super(key: key);
+  ShoppingListScreen({required Key key, required this.products}) : super(key: key);
 
   final List<Product> products;
 

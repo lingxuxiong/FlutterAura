@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class DeviceListScreen extends StatefulWidget {
 
-  DeviceListScreen({Key key, this.devices}) : super(key: key);
+  DeviceListScreen({required Key key, required this.devices}) : super(key: key);
 
   final List<AylaDevice> devices;
 

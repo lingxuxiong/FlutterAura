@@ -7,7 +7,7 @@ class DeviceDetails extends StatelessWidget {
   final AylaDevice device;
 
   DeviceDetails({
-    this.device,
+    required this.device,
   }) : super(key: ObjectKey(device));
 
   Color _getColor(BuildContext context) {

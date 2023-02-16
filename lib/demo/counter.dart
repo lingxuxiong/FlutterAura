@@ -4,7 +4,7 @@ class CounterDisplay extends StatelessWidget {
 
   final int count;
 
-  CounterDisplay({this.count});
+  CounterDisplay({required this.count});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CounterIncrementer extends StatelessWidget {
 
   final VoidCallback onPressed;
 
-  CounterIncrementer({this.onPressed});
+  CounterIncrementer({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

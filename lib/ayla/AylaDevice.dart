@@ -5,8 +5,8 @@ class AylaDevice {
   final bool   online;
 
   const AylaDevice({
-    this.dsn,
-    this.name,
-    this.online
+    required this.dsn,
+    required this.name,
+    required this.online
   });
 }
